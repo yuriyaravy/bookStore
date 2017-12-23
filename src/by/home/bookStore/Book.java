@@ -6,41 +6,39 @@ import by.home.BSMAnager.DateManager;
 
 public class Book implements Comparable<Book>{
 	
+	private int bookId;
 	private String name;
 	private String genre; 
 	private String autor;
 	private double price;
-	private boolean status;
+	private boolean status = false;
 	private int yearOfPublication;
-	private static final Date incomingDate = DateManager.setDate();
+	private String date;
 	
 	
-		//for customer
-	public Book(String name, String genre) {
-		super();
-		this.name = name;
-		this.genre = genre;
-	}
-
-	@Override
-	public String toString() {
-		return "Book [name=" + name + ",  autor=" + autor + ", price=" + price + ", state=" + status
-				+ "]";
-	}
-
 	public Book() {
 		super();
 	}
-
-	public Book(String name, String autor, double price, int yearOfPublication, boolean state) {
+	
+	public Book(int bookId, String name, String autor, double price) {
 		super();
+		this.bookId = bookId;
+		this.name = name;
+		this.autor = autor;
+		this.price = price;
+	}
+
+	public Book(int bookId, String name, String autor, double price, int yearOfPublication, boolean status , String date) {
+		super();
+		this.bookId = bookId;
 		this.name = name;
 		this.autor = autor;
 		this.price = price;
 		this.yearOfPublication = yearOfPublication;
 		this.status = status;
+		this.date = date;
 	}
-	
+
 	public double getPrice() {
 		return price;
 	}
@@ -49,7 +47,7 @@ public class Book implements Comparable<Book>{
 		this.price = price;
 	}
 
-	public boolean isState() {
+	public boolean isStatus() {
 		return status;
 	}
 
@@ -63,6 +61,28 @@ public class Book implements Comparable<Book>{
 
 	public void setYearOfPublication(int yearOfPublication) {
 		this.yearOfPublication = yearOfPublication;
+	}
+	
+	public long getId() {
+		return bookId;
+	}
+
+	public void setId(int bookId) {
+		this.bookId = bookId;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [bookId= " + bookId + ", name= " + name + ", autor= " + autor + ", price= " + price + ", status= "
+				+ status + ", yearOfPublication= " + yearOfPublication + ", Date= " + date + "]";
 	}
 
 	//delault sorting for all books

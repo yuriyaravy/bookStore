@@ -1,92 +1,73 @@
 package by.home.bookStore;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
+import by.home.BSMAnager.CustomerManager;
 import by.home.BSMAnager.Manager;
-import by.home.bookSorting.ComparatorByState;
-import by.home.bookSorting.ComporatorByPrice;
-import by.home.bookSorting.ComporatorByYearOfPublic;
+import by.home.BSMAnager.OrderManager;
+import by.home.BSMAnager.Statistics;
+import by.home.BSMAnager.StorageManager;
+import by.home.sorting.forBook.ComparatorForBookByDate;
+import by.home.sorting.forBook.ComparatorForBookByPrice;
+import by.home.sorting.forBook.OtherSorting;
 
 public class Main {
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		
-		Book b1 = new Book("Azbyka", "Puskin", 245, 2006, false);
-		Book b2 = new Book("Gore ot yma", "Griboedov", 235, 1824, true);
-		Book b3 = new Book("Master i margarita", "Bylgakov", 305, 1937, true);
-		Book b4 = new Book("Voina i mir", "Tolstoi", 600, 1869, true);
-		Book b5 = new Book("Idiot", "Dostoevskii", 250.0, 1868 , false);
-		
-		Manager s1 = new Manager();
-		s1.addBook(b1);
-		s1.addBook(b2);
-		s1.addBook(b3);
-		s1.addBook(b4);
-		s1.addBook(b5);
-		
-		for(Book temp : (s1.books)){
+		booklist();
+	/*	
+		Collections.sort(Manager.soldBooks, new ComparatorForBookByPrice());
+		for(Book temp : (Manager.soldBooks)){
 			System.out.println(temp);
 		}
-			
-		System.out.println();
-		Collections.sort(s1.books);
-		for(Book temp : (s1.books)){
+		CustomerManager.addBookInBasket(1);
+		System.out.println(Customer.customerBasket);
+		System.out.println(Manager.books);
+		CustomerManager.aboutBook(5);
+		System.out.println(Customer.customerBasket);
+		System.out.println(Manager.books);
+		
+		StorageManager.addBookToStorage(2);
+		CustomerManager.addBookInBasket(1);
+		System.out.println("В магазине " +Manager.books);
+		System.out.println("в карзине у клиента "+Customer.customerBasket);
+		System.out.println("Склад " + Manager.storage);
+		StorageManager.deleteteBookFromStorage(2);
+		System.out.println("Склад " + Manager.storage);
+		OrderManager.addBookToOrder(11, "Bartenders", "Myhamedov", 700);
+		System.out.println(Manager.orderBooks);
+		CustomerManager.sendBookToCustomer();
+		System.out.println("в карзине у клиента "+Customer.customerBasket);
+		System.out.println("заказы " + Manager.orderBooks);
+		OrderManager.deleteBookToOrder(5);
+		System.out.println("заказы " + Manager.orderBooks);
+		*/
+		/*
+		Collections.sort(Manager.books, new ComparatorForBookByDate());
+		for(Book temp : (Manager.books)){
 			System.out.println(temp);
 		}
-		System.out.println();
-		Collections.sort(s1.books, new ComporatorByYearOfPublic());
-		for(Book temp : (s1.books)){
+		*/
+		OtherSorting.sortOldBooks(Manager.books);
+		for(Book temp : Manager.oldBooks){
 			System.out.println(temp);
 		}
-		System.out.println();
-		Collections.sort(s1.books, new ComporatorByPrice());
-		for(Book temp : (s1.books)){
-			System.out.println(temp);
-		}
-		
-		System.out.println();
-		Collections.sort(s1.books, new ComparatorByState());
-		for(Book temp : (s1.books)){
-			System.out.println(temp);
-		}
-		
-		OrderBook or1 = new OrderBook("BloodAndSand", 200);
-		OrderBook or2 = new OrderBook("11Minuts", 150);
-		OrderBook or3 = new OrderBook("Gerkules", 210);
-		OrderBook or4 = new OrderBook("OldManAndSee", 170);
-		
-		Manager m1 = new Manager();
-		m1.addBookOrder(or1);
-		m1.addBookOrder(or2);
-		m1.addBookOrder(or3);
-		m1.addBookOrder(or4);
-		System.out.println(or1.status);
-		System.out.println(or1.executionDate);
-		or1.delivered();
-		System.out.println();
-		System.out.println(or1.status);
-		System.out.println(or1.executionDate);
-		System.out.println(m1.orderBooks);
-		
-		System.out.println();
-//		Collections.sort(m1.orderBooks, new ComparatorByState());
-//		for(Book temp : (s1.books)){
-//			System.out.println(temp);
-//		}
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	/*
-	public static ArrayList<Book> arrList(){
-		ArrayList<Book> mainBooks = new ArrayList<Book>();
-		return mainBooks;
+	
+	public static void booklist(){
+		Manager.books.add(new Book(1, "Azbyka", "SmartOne", 245, 2006, false , "01.12.2017"));
+		Manager.books.add(new Book(2, "Gore ot yma", "Griboedov", 235, 1824, true, "13.10.2017"));
+		Manager.books.add(new Book(3, "Master i margarita", "Bylgakov", 305, 1937, true, "23.12.2014"));
+		Manager.books.add(new Book(4, "Voina i mir", "Tolstoi", 600, 1869, true, "05.12.2007"));
+		Manager.books.add(new Book(5, "Idiot", "Dostoevskii", 250.0, 1868 , false, "15.02.2017"));
+		Manager.requests.add(new Book(6 , "Coloring book", "Somebody", 100 , 2015, true, "23.10.2017"));
+		Manager.requests.add(new Book(7 , "ABC", "MisterEnglish", 149 , 2000 , false, "13.03.2017"));
+		Manager.soldBooks.add(new Book(8, "Romeo and Juliet", "Shekspir", 505 , 1597, false, "23.12.2000"));
+		Manager.soldBooks.add(new Book(9, "Don Quixote","Cervantes ", 750 , 1875, false, "23.12.2007"));
+		Manager.soldBooks.add(new Book(10, "Game of Thrones", "Martin", 625 , 1997, false, "01.11.2011"));
+		Manager.orderBooks.add(new Book(4, "Voina i mir", "Tolstoi", 600, 1869, true, "04.09.2010"));
+		Manager.orderBooks.add(new Book(5, "Idiot", "Dostoevskii", 250.0, 1868 , false, "15.07.2017"));
+		Manager.orderBooks.add(new Book(6 , "Coloring book", "Somebody", 100 , 2015, true, "18.12.2013"));
 	}
-	*/
+	
 }

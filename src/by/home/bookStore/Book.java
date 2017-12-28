@@ -11,7 +11,7 @@ public class Book implements Comparable<Book>{
 	private String genre; 
 	private String autor;
 	private double price;
-	private boolean status = false;
+	private boolean status = true;
 	private int yearOfPublication;
 	private String date;
 	
@@ -36,6 +36,16 @@ public class Book implements Comparable<Book>{
 		this.price = price;
 		this.yearOfPublication = yearOfPublication;
 		this.status = status;
+		this.date = date;
+	}
+	
+	public Book(int bookId, String name, String autor, double price, int yearOfPublication, String date) {
+		super();
+		this.bookId = bookId;
+		this.name = name;
+		this.autor = autor;
+		this.price = price;
+		this.yearOfPublication = yearOfPublication;
 		this.date = date;
 	}
 

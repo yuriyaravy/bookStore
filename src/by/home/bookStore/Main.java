@@ -2,24 +2,32 @@ package by.home.bookStore;
 
 import java.util.Collections;
 
-import by.home.BSMAnager.CustomerManager;
 import by.home.BSMAnager.Manager;
-import by.home.BSMAnager.OrderManager;
-import by.home.BSMAnager.Statistics;
-import by.home.BSMAnager.StorageManager;
-import by.home.sorting.forBook.ComparatorForBookByDate;
 import by.home.sorting.forBook.ComparatorForBookByPrice;
-import by.home.sorting.forBook.OtherSorting;
 
 public class Main {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		booklist();
-	/*	
+		custlist();
+	//	CustomerManager.addNewCustomer();
+	//	for(Customer temp : Manager.customerList){
+	//		System.out.println(temp);
+	//	}
+	//	Scanner sc = new Scanner(System.in);
+	//	int a = sc.nextInt();
+	//	CustomerManager.aboutBook(a);
+	//	InsideCustomerMenu.actionInsideCustomerMenu(1);
+		
+		
 		Collections.sort(Manager.soldBooks, new ComparatorForBookByPrice());
 		for(Book temp : (Manager.soldBooks)){
 			System.out.println(temp);
 		}
+	/*	
+		InputMismatchException
+		
+		
 		CustomerManager.addBookInBasket(1);
 		System.out.println(Customer.customerBasket);
 		System.out.println(Manager.books);
@@ -48,10 +56,7 @@ public class Main {
 			System.out.println(temp);
 		}
 		*/
-		OtherSorting.sortOldBooks(Manager.books);
-		for(Book temp : Manager.oldBooks){
-			System.out.println(temp);
-		}
+		
 	}
 	
 	public static void booklist(){
@@ -69,5 +74,10 @@ public class Main {
 		Manager.orderBooks.add(new Book(5, "Idiot", "Dostoevskii", 250.0, 1868 , false, "15.07.2017"));
 		Manager.orderBooks.add(new Book(6 , "Coloring book", "Somebody", 100 , 2015, true, "18.12.2013"));
 	}
-	
+	public static void custlist(){
+		Manager.customerList.add(new Customer(6, "Ira"));
+		Manager.customerList.add(new Customer(3, "Ania"));
+		Manager.customerList.add(new Customer(2, "Vlada"));
+		
+	}
 }

@@ -7,7 +7,7 @@ public class Customer {
 	private int customerId;
 	private String name;
 	
-	public static ArrayList<Book> customerBasket = new ArrayList<Book>();
+	public ArrayList<Book> customerBasket = new ArrayList<Book>();
 	
 	
 
@@ -17,6 +17,12 @@ public class Customer {
 
 	public Customer(String name) {
 		super();
+		this.name = name;
+	}
+
+	public Customer(int customerId, String name) {
+		super();
+		this.customerId = customerId;
 		this.name = name;
 	}
 
@@ -36,5 +42,10 @@ public class Customer {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", name=" + name + "]";
+	}
+	
 	
 }

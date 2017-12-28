@@ -2,14 +2,19 @@ package by.home.BSMAnager;
 
 import java.util.ArrayList;
 
+import by.home.InOutputStreams.TextLogger;
 import by.home.bookStore.Book;
 
 public class Statistics {
 	
 	public static double getProfitFromSoldBooks(ArrayList<Book> soldBooks){
 		double profit = 0;
-		for(Book temp : soldBooks){
-			profit = profit + temp.getPrice();
+		try{
+			for(Book temp : soldBooks){
+				profit = profit + temp.getPrice();
+			}
+		}catch(Exception ex){
+			TextLogger.exceptLog(ex);
 		}
 		return profit;
 	}

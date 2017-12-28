@@ -1,0 +1,10 @@
+дек 27, 2017 5:09:27 PM by.home.view.Main main
+WARNING: warning msg
+дек 27, 2017 5:09:27 PM by.home.view.Main main
+SEVERE: Server msq
+дек 27, 2017 5:11:47 PM by.home.view.Main main
+WARNING: warning msg
+дек 27, 2017 5:11:47 PM by.home.view.Main main
+SEVERE: Server msq
+дек 27, 2017 5:45:41 PM by.home.view.Main exeptLog
+INFO: Exeption: java.lang.ArithmeticException: / by zero

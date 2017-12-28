@@ -13,8 +13,8 @@ import by.home.bookStore.Book;
 
 public class OtherSorting {
 	
+	
 	public static ArrayList<Book> sortOldBooks(ArrayList<Book> old){
-		
 		for(Book temp : old){
 			SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 			Date dateFromBook = null;
